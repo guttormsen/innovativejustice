@@ -1,12 +1,15 @@
 # agenten
 
-Slack-bot drevet av Claude, bygget med Next.js og TypeScript. Snakk med den i DM eller ved å nevne den (`@agenten`) i en kanal. Den svarer i tråd og bruker trådhistorikken som kontekst.
+Slack-bot drevet av Claude (Socket Mode, TypeScript). Snakk med den i DM eller ved å nevne den (`@agenten`) i en kanal. Den svarer i tråd og bruker trådhistorikken som kontekst.
 
 ## Oppsett
 
-1. Opprett Slack-appen fra `slack-app-manifest.yaml` (api.slack.com/apps → Create New App → From a manifest). Husk å bytte ut `request_url` med ditt eget domene. Manifestet gir boten et bredt sett bot-scopes.
-2. Kopier `.env.example` til `.env.local` og fyll inn `ANTHROPIC_API_KEY`, `SLACK_BOT_TOKEN` og `SLACK_SIGNING_SECRET`.
-3. `npm install && npm run dev` (bruk f.eks. ngrok for lokal testing), eller deploy til Vercel.
+1. Opprett Slack-appen fra `slack-app-manifest.yaml` (api.slack.com/apps → Create New App → From a manifest) og installer den i workspacet.
+2. Lag et app-level token med scope `connections:write` under *Basic Information* → *App-Level Tokens* (`xapp-…`).
+3. Kopier `.env.example` til `.env.local` og fyll inn `ANTHROPIC_API_KEY`, `SLACK_BOT_TOKEN` (`xoxb-…`) og `SLACK_APP_TOKEN`.
+4. `npm install && node --env-file=.env.local node_modules/.bin/tsx src/index.ts` (eller `npm run start` hvis variablene er satt i miljøet).
+
+Boten må kjøre som en prosess som alltid er oppe (egen server, VPS eller PC).
 
 ## Verktøy
 

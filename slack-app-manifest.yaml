@@ -1,6 +1,6 @@
 # Slack App Manifest for agenten
 # Slack -> api.apps -> "Create New App" -> "From a manifest" -> lim inn denne filen.
-# Bytt ut REQUEST_URL-domenet (agenten.example.com) med ditt eget før du lager appen.
+# Bruker Socket Mode: ingen offentlig URL nødvendig.
 display_information:
   name: agenten
   description: Autonom AI-agent drevet av Claude med nettsøk og egen datamaskin
@@ -58,10 +58,9 @@ oauth_config:
       - users:read.email
 settings:
   event_subscriptions:
-    request_url: https://agenten.example.com/api/slack/events
     bot_events:
       - app_mention
       - message.im
   org_deploy_enabled: false
-  socket_mode_enabled: false
+  socket_mode_enabled: true
   token_rotation_enabled: false

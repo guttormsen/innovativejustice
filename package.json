@@ -3,21 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "latest",
-    "@slack/web-api": "^7.0.0",
-    "next": "^15.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@slack/bolt": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.0.0"
-  }
+  },
+  "type": "module"
 }
