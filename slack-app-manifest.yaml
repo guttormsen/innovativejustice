@@ -1,0 +1,67 @@
+# Slack App Manifest for agenten
+# Slack -> api.apps -> "Create New App" -> "From a manifest" -> lim inn denne filen.
+# Bytt ut REQUEST_URL-domenet (agenten.example.com) med ditt eget før du lager appen.
+display_information:
+  name: agenten
+  description: Autonom AI-agent drevet av Claude med nettsøk og egen datamaskin
+  background_color: "#1f2937"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: agenten
+    always_online: true
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - bookmarks:read
+      - bookmarks:write
+      - canvases:read
+      - canvases:write
+      - channels:history
+      - channels:join
+      - channels:manage
+      - channels:read
+      - chat:write
+      - chat:write.customize
+      - chat:write.public
+      - commands
+      - dnd:read
+      - emoji:read
+      - files:read
+      - files:write
+      - groups:history
+      - groups:read
+      - groups:write
+      - im:history
+      - im:read
+      - im:write
+      - links:read
+      - links:write
+      - mpim:history
+      - mpim:read
+      - mpim:write
+      - pins:read
+      - pins:write
+      - reactions:read
+      - reactions:write
+      - reminders:read
+      - reminders:write
+      - team:read
+      - usergroups:read
+      - usergroups:write
+      - users.profile:read
+      - users:read
+      - users:read.email
+settings:
+  event_subscriptions:
+    request_url: https://agenten.example.com/api/slack/events
+    bot_events:
+      - app_mention
+      - message.im
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

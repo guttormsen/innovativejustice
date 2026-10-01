@@ -32,7 +32,7 @@ async function handle(event: SlackEvent, botUserId: string) {
   }
   if (history.length === 0 || history[0].role !== "user") return;
 
-  const text = await respond(history);
+  const text = await respond(history, `${event.channel}:${threadTs}`);
   await slack.chat.postMessage({ channel: event.channel, thread_ts: threadTs, text: text || "(tomt svar)" });
 }
 
